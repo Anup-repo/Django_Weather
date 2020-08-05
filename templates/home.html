@@ -6,6 +6,24 @@
 </head>
 {% block content %}
 
-<h1>hello {{name}}</h1>>
+<h1>Welcome</h1>
+</br>
+
+{%if zipcode %}
+    {{zipcode}}
+{%endif %}
+
+{%if api %}
+    {%if api == "Error!!" %}
+        <h2>There is an error..Please try again..</h2>>
+    {%else %}
+    <div class="jumbotron {{category_color}}">
+        <h1 class="display-4">{{api.0.Category.Name}}</h1>
+        <p class="lead">Current {{api.0.ReportingArea}} Air Quality {{api.0.AQI}}</p>
+        <p>{{category_description}}</p>
+    </div>
+
+    {%endif %}
+{%endif %}
 
 {% endblock %}
